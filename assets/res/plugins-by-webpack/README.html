@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Communicate Plugin for Child</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="communicate-plugin-for-child">Communicate Plugin for Child</h1>
+<h2 id="%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F">引用方式：</h2>
+<pre><code class="language-js"><div><span class="hljs-comment">// 原生</span>
+<span class="hljs-comment">// &lt;script src='./child-mitt-plugin.js'&gt;&lt;/script&gt;</span>
+
+<span class="hljs-comment">// ES6 模块引用</span>
+<span class="hljs-keyword">import</span> ChildMittPlugin <span class="hljs-keyword">from</span> <span class="hljs-string">'child-mitt-plugin'</span>
+
+<span class="hljs-comment">// CommonJS 模块引用</span>
+<span class="hljs-keyword">const</span> ChildMittPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'child-mitt-plugin'</span>)
+</div></code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8">使用</h2>
+<h3 id="game-%E5%86%85%E9%83%A8%E8%B0%83%E7%94%A8">Game 内部调用：</h3>
+<pre><code class="language-js"><div><span class="hljs-comment">// 模块引用（原生默认全局变量ChildMittPlugin）</span>
+<span class="hljs-keyword">const</span> ChildMittPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'child-mitt-plugin'</span>)
+
+<span class="hljs-comment">// 初始化</span>
+<span class="hljs-comment">// 监听绑定</span>
+<span class="hljs-keyword">this</span>.plugin = <span class="hljs-keyword">new</span> ChildMittPlugin({
+  <span class="hljs-attr">onInit</span>: <span class="hljs-function">(<span class="hljs-params">{config}</span>) =&gt;</span> { <span class="hljs-keyword">this</span>.restart() },
+  <span class="hljs-attr">onRestart</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-keyword">this</span>.restart() },
+  ...
+})
+
+<span class="hljs-comment">// emit主动推送消息</span>
+<span class="hljs-keyword">this</span>.plugin.loaded()
+</div></code></pre>
+<h2 id="api">API</h2>
+<h2 id="1-%E6%9E%84%E9%80%A0%E5%99%A8">1. 构造器</h2>
+<p>注册 message 事件的回调函数</p>
+<h3 id="11-%E5%8F%82%E6%95%B0">1.1 参数</h3>
+<ul>
+<li>
+<p><code>events</code>: <code>Object</code> 监听的message事件, 举例：</p>
+<pre><code class="language-js"><div>{
+  <span class="hljs-attr">onInit</span>: <span class="hljs-function">(<span class="hljs-params">{config}</span>) =&gt;</span> { <span class="hljs-keyword">this</span>.restart() },
+  <span class="hljs-attr">onRestart</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-keyword">this</span>.restart() },
+  ...
+}
+</div></code></pre>
+</li>
+</ul>
+<h3 id="12-%E4%BA%8B%E4%BB%B6%E5%88%97%E8%A1%A8">1.2 事件列表</h3>
+<ul>
+<li>
+<p><strong>onInit</strong></p>
+<ul>
+<li>描述：游戏初始化，接收游戏的一些初始化配置，如初始化音量，游戏时长（定时类游戏），游戏关卡次数（固定次数的游戏）等</li>
+<li>接收参数：Object</li>
+</ul>
+<pre><code class="language-js"><div>{
+  <span class="hljs-attr">config</span>: {
+    <span class="hljs-attr">volume</span>: <span class="hljs-number">0.5</span>, <span class="hljs-comment">// Number, 初始化音量, 默认为0.5</span>
+    totalDuration: <span class="hljs-literal">NaN</span>, <span class="hljs-comment">// Number, 初始化游戏时长（秒）, 默认NaN, 按照游戏默认设计</span>
+    times: <span class="hljs-literal">NaN</span> <span class="hljs-comment">// Number, 初始化游戏关卡次数, 默认NaN, 按照游戏默认设计</span>
+  }
+}
+</div></code></pre>
+</li>
+<li>
+<p><strong>onRestart</strong></p>
+<ul>
+<li>描述：重置</li>
+</ul>
+</li>
+<li>
+<p><strong>onPause</strong></p>
+<ul>
+<li>描述：暂停</li>
+</ul>
+</li>
+<li>
+<p><strong>onResume</strong></p>
+<ul>
+<li>描述：恢复（从暂停中）</li>
+</ul>
+</li>
+<li>
+<p><strong>onVolumeChange</strong></p>
+<ul>
+<li>描述：游戏音效音量变化</li>
+<li>接收参数：Object</li>
+</ul>
+<pre><code class="language-js"><div>{
+  <span class="hljs-attr">volume</span>: <span class="hljs-number">0.5</span> <span class="hljs-comment">// Number, 音量设置，范围 0~1</span>
+}
+</div></code></pre>
+</li>
+<li>
+<p><strong>onHint</strong></p>
+<ul>
+<li>描述：游戏提醒</li>
+</ul>
+</li>
+<li>
+<p>事件表格</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onInit</td>
+<td>{ config }</td>
+<td>游戏初始化</td>
+</tr>
+<tr>
+<td>onRestart</td>
+<td>null</td>
+<td>重置</td>
+</tr>
+<tr>
+<td>onPause</td>
+<td>null</td>
+<td>暂停</td>
+</tr>
+<tr>
+<td>onResume</td>
+<td>null</td>
+<td>恢复（从暂停中）</td>
+</tr>
+<tr>
+<td>onVolumeChange</td>
+<td>{ volume }</td>
+<td>游戏音效音量变化</td>
+</tr>
+<tr>
+<td>onHint</td>
+<td>null</td>
+<td>游戏提醒</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id="2-%E6%96%B9%E6%B3%95">2. 方法</h2>
+<h3 id="21-%E6%96%B9%E6%B3%95%E5%88%97%E8%A1%A8">2.1 方法列表</h3>
+<ul>
+<li>
+<p>loaded</p>
+<ul>
+<li>情景：游戏加载完成时调用</li>
+<li>参数 <code>null</code></li>
+</ul>
+</li>
+<li>
+<p>emitAction</p>
+<ul>
+<li>情景：游戏动作或答题触发结果时调用</li>
+<li>参数 <code>Object</code></li>
+</ul>
+<pre><code class="language-js"><div>{
+  <span class="hljs-attr">type</span>: <span class="hljs-string">'fail'</span>, <span class="hljs-comment">// String, 接收 'fail' / 'success', 分别表示动作or答题错误or正确</span>
+  feature: <span class="hljs-string">''</span> <span class="hljs-comment">// String, 特征值, 根据游戏设计传值, 例: '2+5', 'round', 'rectangle', '5' 等</span>
+}
+</div></code></pre>
+</li>
+<li>
+<p>gameStart</p>
+<ul>
+<li>情景：游戏开始时调用</li>
+<li>参数 <code>null</code></li>
+</ul>
+</li>
+<li>
+<p>gameOver</p>
+<ul>
+<li>情景：游戏结束时调用</li>
+<li>参数 <code>Object</code></li>
+</ul>
+<pre><code class="language-js"><div>{
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">50</span>, <span class="hljs-comment">// Number, 游戏持续时间（秒），pause暂停计时，restart重置</span>
+  failTime: <span class="hljs-number">5</span> <span class="hljs-comment">// Number, 失败/错误次数，restart重置</span>
+}
+</div></code></pre>
+</li>
+</ul>
+
+    </body>
+    </html>
