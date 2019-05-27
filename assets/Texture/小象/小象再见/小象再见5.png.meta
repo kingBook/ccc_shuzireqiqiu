@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "9f600ffd-db32-441c-be95-6b269aa2cd25",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "小象再见5": {
+      "ver": "1.0.3",
+      "uuid": "c2424328-90dc-4c6b-9088-7f05492b6bb5",
+      "rawTextureUuid": "9f600ffd-db32-441c-be95-6b269aa2cd25",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -6,
+      "offsetY": -1.5,
+      "trimX": 4,
+      "trimY": 9,
+      "width": 167,
+      "height": 181,
+      "rawWidth": 187,
+      "rawHeight": 196,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
