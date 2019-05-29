@@ -2,27 +2,29 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        animState:{default:null, visible:false}
+        aniState:{default:null, visible:false},
+        numNO:{default:0,visible:false}
     },
 
-    // LIFE-CYCLE CALLBACKS:
+    start:function(){
 
-    // onLoad () {},
+    },
 
-    start () {
-       var anim=this.getComponent(cc.Animation);
-       
-       this.animState=anim.play();
-       this.animState.speed=0;
-       this.gotoNum(10);
+    initAniState:function(){
+        var ani=this.getComponent(cc.Animation);
+
+        this.aniState=ani.play();
+        this.aniState.speed=0;
     },
     
-     update (dt) {
+     update:function(dt){
          
      },
      
-     gotoNum(num){
-         this.animState.time=num;
-         cc.log(this.animState.time);
+     goNumNO:function(value){
+         this.numNO=value;
+         if(this.aniState==null)this.initAniState();
+         this.aniState.time=value;
+         //cc.log("aniState.time:"+this.aniState.time);
      }
 });

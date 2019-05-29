@@ -2,35 +2,29 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
-        animal:{default:null,visible:false},
+        animalJs:{default:null,visible:false}
         
     },
 
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {},
-
-    start () {
-        this.animal=this.node.getChildByName("animal").getComponent("Animal");
-        //this.animal.node.active=false;
+    onLoad:function(){
+        this.animalJs=this.node.getChildByName("animal").getComponent("Animal");
+        this.animalJs.node.on("touchBalloon",this.onTouchBalloon,this);
+        this.animalJs.goOutside(3);
     },
 
-    // update (dt) {},
+
+    start:function(){
+
+    },
+
+    onTouchBalloon:function(numNO){
+        cc.log("window click:",numNO);
+    },
+
+    onDestroy:function(){
+        this.animalJs.node.off("touchBalloon",this.onTouchBalloon,this);
+    }
+
     
     
     
