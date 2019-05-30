@@ -56,7 +56,7 @@ cc.Class({
     },
 
     start:function(){
-        this.startGame(true);
+        this.startGame(false);
     },
 
     initWindowJsList:function(){
@@ -90,6 +90,11 @@ cc.Class({
         }
         //this.promptNeedFindNumber();//test
     },
+    
+    /**找完所有数字，热气球飞走执行*/
+    gameWin:function(){
+        
+    },
 
     /**提示需要找的数字*/
     promptNeedFindNumber:function(){
@@ -122,10 +127,11 @@ cc.Class({
             if(windowJs.getIsBackOrOuting()==false){
                 var numNO=this.getRandomInt0To10();
                 this.createCount++;
-                if(this.createCount>=Util.getRandomIntID(3,5)&&!this.getOutSideWindowsHasNeedNumber()){
-                    this.createCount=0;
-                    numNO=this.needFindNumber;
-                }
+                if(this.createCount>=Util.getRandomIntID(3,5)){
+                if(!this.getOutSideWindowsHasNeedNumber()){
+                        this.createCount=0;
+                        numNO=this.needFindNumber;
+                }}
                 windowJs.goOutside(numNO);
                 this.delayDisplayNumber();
                 break;
@@ -177,6 +183,7 @@ cc.Class({
         this.mouseCusor.setPosition(pos);
     },
     
+    /**底部提示数字面板 */
     displayErrorTipPanel:function(){
         this.errorTipNode.stopAllActions();
         
@@ -191,6 +198,8 @@ cc.Class({
         var delayTime=cc.delayTime(1);//停留时间
         var moveOut=cc.moveTo(duration,this.errorTipNode.x,this.errorTipRecordY);
         this.errorTipNode.runAction(cc.sequence(moveIn,delayTime,moveOut));
+        
+        this.playNeedFindNumberSound();
     },
     
     onDestroy:function(){

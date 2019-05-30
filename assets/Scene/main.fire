@@ -1008,8 +1008,6 @@
     ],
     "mainJs": null,
     "originY": null,
-    "goUpdistance": 100,
-    "outY": 860,
     "elephantAnim": {
       "__id__": 15
     },

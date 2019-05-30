@@ -10,7 +10,6 @@ cc.Class({
     onLoad:function(){
         this.animalJs=this.node.getChildByName("animal").getComponent("Animal");
         this.animalJs.node.on("touchBalloon",this.onTouchBalloon,this);
-        //this.animalJs.goOutside(3);//test
 
         this.mainJs=cc.find("Main").getComponent("Main");
     },
@@ -63,7 +62,6 @@ cc.Class({
     },
     
     otherWindowsComeBack:function(){
-        cc.log("otherWindowsComeBack");
         var windowJsList=this.mainJs.windowJsList;
         for(var i=0;i<windowJsList.length;i++){
             var windowjs=windowJsList[i];

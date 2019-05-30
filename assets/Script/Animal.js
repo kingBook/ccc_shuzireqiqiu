@@ -160,7 +160,7 @@ cc.Class({
             }
         }
     },
-
+    
     dispose:function(){
         this.isOut=false;
         this.isBackOrOuting=false;
@@ -175,6 +175,7 @@ cc.Class({
         }
         this.explosionAnim=null;
     },
+    
     
     onDestroy:function(){
         this.dispose();

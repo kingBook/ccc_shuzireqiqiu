@@ -1,3 +1,4 @@
+
 /**热气球 */
 cc.Class({
     extends: cc.Component,
@@ -6,10 +7,10 @@ cc.Class({
         sounds:{default:[],type:[cc.AudioClip]},
         mainJs:{default:null,visible:false},
         originY:{default:NaN,visible:false},
-        goUpdistance:{default:100},
-        outY:{default:860,visible:false},
         elephantAnim:{default:null,type:cc.Animation},
         recordGoUpY:{default:NaN,visible:false},
+        outY:{default:1200,serializable:false,visible:false},
+        goUpdistance:{default:150,serializable:false,visible:false}
     },
     
     onLoad:function(){
@@ -31,7 +32,7 @@ cc.Class({
         var y=this.node.y+this.goUpdistance;
         var isAtBottom=this.node.y<=this.originY;
         if(isAtBottom&&!isNaN(this.recordGoUpY)){
-            y=this.recordGoUpY;//在底部时，上升到上一次的高度
+            y=this.recordGoUpY+this.goUpdistance;//在底部时，上升到上一次的高度+每次上升的高度
         }
         var moveTo=cc.moveTo(duration,this.node.x,y);
         var callFunc=cc.callFunc(this.onGoUpEnd,this);
@@ -43,7 +44,6 @@ cc.Class({
     },
     onGoUpEnd:function(){
         this.mainJs.promptNeedFindNumber();
-        cc.log("onGoUpEnd");
     },
     /**飞出去*/
     goOut:function(){
@@ -55,10 +55,9 @@ cc.Class({
         
         cc.audioEngine.playEffect(this.sounds[2]);//热气球飞走了
         
-        this.scheduleOnce(()=>{this.mainJs.startGame(true);},2);
     },
     onGoOutEnd:function(){
-        cc.log("onGoOutEnd");
+        this.mainJs.gameWin();
     },
     
     /**下降 */
@@ -74,7 +73,6 @@ cc.Class({
     },
     onGoDownEnd:function(){
         
-        cc.log("onGoDownEnd");
     },
     /**下降到底部 */
     goDownBottom:function(){
@@ -87,9 +85,7 @@ cc.Class({
         cc.audioEngine.playEffect(this.sounds[1]);//热气球下降
     },
     onGoDownBottom:function(){
-        cc.log("onGoDownBottom");
-        //点错了，语音重新提示要找的数字
-        //this.mainJs.playNeedFindNumberSound();
+        
     },
     
     
