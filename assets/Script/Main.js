@@ -1,5 +1,5 @@
 const Util=require("Util");
-const ChildMittPlugin = require('child-mitt-plugin');
+//const ChildMittPlugin = require('child-mitt-plugin');
 cc.Class({
     extends: cc.Component,
 
@@ -38,7 +38,7 @@ cc.Class({
         //
         this.errorTipRecordY=this.errorTipNode.y;
         //
-        this.plugin = new ChildMittPlugin({
+        /*this.plugin = new ChildMittPlugin({
             onInit: ({config}) => {
                 setVolume(config.volume);
                  this.startGame(true); 
@@ -51,7 +51,7 @@ cc.Class({
             }
         });
         // emit主动推送消息
-        this.plugin.loaded();
+        this.plugin.loaded();*/
         
     },
 

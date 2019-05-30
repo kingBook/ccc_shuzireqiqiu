@@ -1,6 +1,6 @@
 {
   "android-instant": {
-    "REMOTE_SERVER_ROOT": "",
+    "REMOTE_SERVER_ROOT": "http://192.168.2.170:7456/preview-android-instant/",
     "host": "",
     "pathPattern": "",
     "recordPath": "",
@@ -15,10 +15,7 @@
     "subContext": ""
   },
   "encryptJs": true,
-  "excludeScenes": [
-    "c72643f5-dd46-44ef-8829-6205611eee9c",
-    "b24ca83b-66d8-4ce4-b5d6-6564f4e92da3"
-  ],
+  "excludeScenes": [],
   "fb-instant-games": {},
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
