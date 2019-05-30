@@ -21,3 +21,7 @@ module.exports.getRandomIdList=function(startId,endId){
     }
     return randomList;
 };
+
+module.exports.getRandomIntID=function(startId,endId){
+    return ((Math.random()*(endId-startId))|0)+startId;
+};
