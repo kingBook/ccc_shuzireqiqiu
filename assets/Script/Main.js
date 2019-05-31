@@ -1,5 +1,5 @@
 const Util=require("Util");
-//const ChildMittPlugin = require('child-mitt-plugin');
+const ChildMittPlugin = require('child-mitt-plugin');
 cc.Class({
     extends: cc.Component,
 
@@ -27,7 +27,7 @@ cc.Class({
         clickStartGameNode:{default:null,type:cc.Node},
         alphaMaskSplashNode:{default:null,type:cc.Node},
         isGameing:{default:false,serializable:false,visible:false},
-        plugin:{default:null,visible:false}
+        plugin:{default:null,serializable:false,visible:false}
     },
 
     onLoad:function(){
@@ -41,24 +41,38 @@ cc.Class({
         //
         this.errorTipRecordY=this.errorTipNode.y;
         this.isGameing=false;
-        //
-        /*this.plugin = new ChildMittPlugin({
-            onInit: ({config}) => {
+        //初始化Communicate Plugin for Child
+        this.initPlugin();
+        
+    },
+    
+    initPlugin:function(){
+        this.plugin=new ChildMittPlugin({
+            onInit:({config})=>{
                 setVolume(config.volume);
-                 this.startGame(true); 
+                this.startGame(true); 
             },
-            onRestart: () => {
-                 this.startGame(true); 
+            onRestart:()=>{
+                cc.log("== onRestart ==");
+                this.startGame(true); 
+            },
+            onPause:()=>{
+                cc.audioEngine.pauseAll();
+            },
+            onResume:()=>{
+                cc.audioEngine.resumeAll();
             },
             onVolumeChange:({config})=>{
                 setVolume(config.volume);
+            },
+            onHint:()=>{
+                cc.audioEngine.playEffect(this.rightErrorSounds[1]);
             }
         });
         // emit主动推送消息
-        this.plugin.loaded();*/
-        
+        this.plugin.loaded();
     },
-
+    
     start:function(){
         this.init();
     },
@@ -89,7 +103,9 @@ cc.Class({
 
     /**开始游戏*/
     startGame:function(isPlayStartTipSound){
+        this.plugin.gameStart();
         //开始前设置
+        cc.audioEngine.stopAll();
         this.errorTipNode.stopAllActions();
         this.errorTipNode.y=this.errorTipRecordY;
         this.rightNumCount=0;
@@ -115,6 +131,7 @@ cc.Class({
     
     /**找完所有数字，热气球飞走执行*/
     gameWin:function(){
+        this.plugin.gameOver({duration:50,failTime:1});
         this.isGameing=false;
         this.mouseCusor.active=false;
     },
