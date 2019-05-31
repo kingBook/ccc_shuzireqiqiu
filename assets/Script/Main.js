@@ -23,7 +23,10 @@ cc.Class({
         mouseCusor:{default:null,type:cc.Node},
         canvasNode:{default:null,type:cc.Node},
         errorTipNode:{default:null,type:cc.Node},
-        errorTipRecordY:{default:null,visible:false},
+        errorTipRecordY:{default:0,serializable:false,visible:false},
+        clickStartGameNode:{default:null,type:cc.Node},
+        alphaMaskSplashNode:{default:null,type:cc.Node},
+        isGameing:{default:false,serializable:false,visible:false},
         plugin:{default:null,visible:false}
     },
 
@@ -37,6 +40,7 @@ cc.Class({
         this.canvasNode.on(cc.Node.EventType.MOUSE_MOVE,this.onTouchHandler,this,true);
         //
         this.errorTipRecordY=this.errorTipNode.y;
+        this.isGameing=false;
         //
         /*this.plugin = new ChildMittPlugin({
             onInit: ({config}) => {
@@ -56,7 +60,23 @@ cc.Class({
     },
 
     start:function(){
-        this.startGame(false);
+        this.init();
+    },
+    
+    init:function(){
+        //显示半透明屏幕
+        this.alphaMaskSplashNode.active=true;
+        //显示“点击开始游戏”
+        this.clickStartGameNode.active=true;
+        this.canvasNode.on(cc.Node.EventType.TOUCH_START,this.onStartTouchHandler,this,true);
+    },
+    
+    onStartTouchHandler:function(){
+        this.canvasNode.off(cc.Node.EventType.TOUCH_START,this.onStartTouchHandler,this,true);
+        this.alphaMaskSplashNode.active=false;
+        this.clickStartGameNode.active=false;
+        //开始游戏
+        this.startGame(true);
     },
 
     initWindowJsList:function(){
@@ -78,6 +98,8 @@ cc.Class({
         this.createCount=0;
         this.balloonNode.getComponent("Balloon").init();
         this.setVolume(1);
+        this.mouseCusor.active=true;
+        this.isGameing=true;
         for(var i=0;i<this.windowJsList.length;i++){
             this.windowJsList[i].rightNowHideAnimal();
         }
@@ -93,7 +115,8 @@ cc.Class({
     
     /**找完所有数字，热气球飞走执行*/
     gameWin:function(){
-        
+        this.isGameing=false;
+        this.mouseCusor.active=false;
     },
 
     /**提示需要找的数字*/
@@ -180,7 +203,9 @@ cc.Class({
         var pos=e.getLocation();
         pos=this.canvasNode.convertToNodeSpaceAR(pos);
         //cc.log(pos);
-        this.mouseCusor.setPosition(pos);
+        if(this.isGameing){
+            this.mouseCusor.setPosition(pos);
+        }
     },
     
     /**底部提示数字面板 */
@@ -208,6 +233,7 @@ cc.Class({
         this.canvasNode.off(cc.Node.EventType.TOUCH_END,this.onTouchHandler,this,true);
         this.canvasNode.off(cc.Node.EventType.TOUCH_CANCEL,this.onTouchHandler,this,true);
         this.canvasNode.off(cc.Node.EventType.MOUSE_MOVE,this.onTouchHandler,this,true);
+        this.canvasNode.off(cc.Node.EventType.TOUCH_START,this.onStartTouchHandler,this,true);
         this.unscheduleAllCallbacks();
     }
 
