@@ -47,6 +47,7 @@ cc.Class({
     },
     
     initPlugin:function(){
+        cc.log("initPlugin");
         this.plugin=new ChildMittPlugin({
             onInit:({config})=>{
                 setVolume(config.volume);
