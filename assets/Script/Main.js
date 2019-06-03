@@ -22,7 +22,8 @@ cc.Class({
         rightNumCount:{default:0,visible:false},//正确点击数字计数
         mouseCusor:{default:null,type:cc.Node},
         canvasNode:{default:null,type:cc.Node},
-        errorTipNode:{default:null,type:cc.Node},
+        errorTipNode:{default:null,type:cc.Node},//下边提示的要找的数字
+        errorTipHighlightNode:{default:null,type:cc.Node},//下边用于高亮数字的节点
         errorTipRecordY:{default:0,serializable:false,visible:false},
         clickStartGameNode:{default:null,type:cc.Node},
         alphaMaskSplashNode:{default:null,type:cc.Node},
@@ -67,7 +68,7 @@ cc.Class({
                 setVolume(config.volume);
             },
             onHint:()=>{
-                cc.audioEngine.playEffect(this.rightErrorSounds[1]);
+                //cc.audioEngine.playEffect(this.rightErrorSounds[1]);
             }
         });
         // emit主动推送消息
@@ -106,6 +107,8 @@ cc.Class({
     startGame:function(isPlayStartTipSound){
         this.plugin.gameStart();
         //开始前设置
+        this.errorTipNode.stopAllActions();
+        this.errorTipHighlightNode.stopAllActions();
         cc.audioEngine.stopAll();
         this.errorTipNode.stopAllActions();
         this.errorTipNode.y=this.errorTipRecordY;
@@ -135,6 +138,9 @@ cc.Class({
         this.plugin.gameOver({duration:50,failTime:1});
         this.isGameing=false;
         this.mouseCusor.active=false;
+        this.errorTipNode.stopAllActions();
+        this.errorTipHighlightNode.stopAllActions();
+        
     },
 
     /**提示需要找的数字*/
@@ -229,6 +235,9 @@ cc.Class({
     /**底部提示数字面板 */
     displayErrorTipPanel:function(){
         this.errorTipNode.stopAllActions();
+        this.errorTipHighlightNode.stopAllActions();
+        this.errorTipHighlightNode.active=true;
+        this.errorTipHighlightNode.runAction(cc.hide());
         
         const inY=-58;
         const duration=0.3;
@@ -238,14 +247,24 @@ cc.Class({
         numJs.goNumNO(this.needFindNumber);
         
         var moveIn=cc.moveTo(duration,this.errorTipNode.x,inY);
+        
+        var toggleVisibleSeq=cc.sequence(cc.toggleVisibility(),cc.delayTime(0.2),cc.toggleVisibility(),cc.delayTime(0.2),
+                                         cc.toggleVisibility(),cc.delayTime(0.2),cc.toggleVisibility());
+        var callFunc=cc.callFunc(()=>{
+            this.errorTipHighlightNode.runAction(toggleVisibleSeq);
+        });
+        
         var delayTime=cc.delayTime(1);//停留时间
+        
         var moveOut=cc.moveTo(duration,this.errorTipNode.x,this.errorTipRecordY);
-        this.errorTipNode.runAction(cc.sequence(moveIn,delayTime,moveOut));
+        this.errorTipNode.runAction(cc.sequence(moveIn,callFunc,delayTime,moveOut));
         
         this.playNeedFindNumberSound();
     },
     
     onDestroy:function(){
+        this.errorTipNode.stopAllActions();
+        this.errorTipHighlightNode.stopAllActions();
         this.canvasNode.off(cc.Node.EventType.TOUCH_MOVE,this.onTouchHandler,this,true);
         this.canvasNode.off(cc.Node.EventType.TOUCH_START,this.onTouchHandler,this,true);
         this.canvasNode.off(cc.Node.EventType.TOUCH_END,this.onTouchHandler,this,true);
