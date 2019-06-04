@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "19d8fd5a-afc1-4ac8-9f52-ede63cb4fa4c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "狐狸出现2": {
+      "ver": "1.0.3",
+      "uuid": "37b76d52-a262-4dc2-b266-3fd2abdca2af",
+      "rawTextureUuid": "19d8fd5a-afc1-4ac8-9f52-ede63cb4fa4c",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 450,
+      "height": 533,
+      "rawWidth": 450,
+      "rawHeight": 533,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

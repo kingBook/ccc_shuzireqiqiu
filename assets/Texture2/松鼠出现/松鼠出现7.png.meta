@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "9cd7cd8a-8c68-4706-aeeb-a560dce642b4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "松鼠出现7": {
+      "ver": "1.0.3",
+      "uuid": "7e1d7355-c0ff-47b4-b90b-4c45ec0d7d4f",
+      "rawTextureUuid": "9cd7cd8a-8c68-4706-aeeb-a560dce642b4",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 450,
+      "height": 533,
+      "rawWidth": 450,
+      "rawHeight": 533,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

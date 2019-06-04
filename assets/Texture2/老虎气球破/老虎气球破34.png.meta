@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "f3b24417-21cd-4b13-842e-962c9972d61f",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "老虎气球破34": {
+      "ver": "1.0.3",
+      "uuid": "78e6da00-6008-491c-b01b-158c82ef827c",
+      "rawTextureUuid": "f3b24417-21cd-4b13-842e-962c9972d61f",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 450,
+      "height": 533,
+      "rawWidth": 450,
+      "rawHeight": 533,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

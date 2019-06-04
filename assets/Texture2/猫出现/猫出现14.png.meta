@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "b5aa0295-7d14-4ea5-8a3d-fc23ac76ac1e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "猫出现14": {
+      "ver": "1.0.3",
+      "uuid": "4b665d53-b8f2-45b9-9afb-85a2724039ce",
+      "rawTextureUuid": "b5aa0295-7d14-4ea5-8a3d-fc23ac76ac1e",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 450,
+      "height": 533,
+      "rawWidth": 450,
+      "rawHeight": 533,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

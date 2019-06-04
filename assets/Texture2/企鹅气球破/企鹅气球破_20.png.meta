@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "f1c1c1ee-9cb2-4e5a-b014-b9016aa3aeab",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "企鹅气球破_20": {
+      "ver": "1.0.3",
+      "uuid": "058f07ea-0a92-4a9b-ba3c-24611fc0afd2",
+      "rawTextureUuid": "f1c1c1ee-9cb2-4e5a-b014-b9016aa3aeab",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 450,
+      "height": 533,
+      "rawWidth": 450,
+      "rawHeight": 533,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

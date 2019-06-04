@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "eca2f90c-b135-4809-adcb-bd76057f60cb",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "老虎出现0": {
+      "ver": "1.0.3",
+      "uuid": "92b7b393-9bc6-4949-8bcb-ce938f752c3b",
+      "rawTextureUuid": "eca2f90c-b135-4809-adcb-bd76057f60cb",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 450,
+      "height": 533,
+      "rawWidth": 450,
+      "rawHeight": 533,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
