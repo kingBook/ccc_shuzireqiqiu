@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "d94db20d-eb21-4486-a755-32011469e726",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "企鹅气球破_38": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "54714700-47d2-4516-b182-519c2b0d93d9",
       "rawTextureUuid": "d94db20d-eb21-4486-a755-32011469e726",
       "trimType": "custom",

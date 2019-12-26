@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "dbbd009c-f83b-4fae-84fa-acf9aa0e031e",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "小象再见4": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "cd844779-3632-404c-a73d-81012ef0e706",
       "rawTextureUuid": "dbbd009c-f83b-4fae-84fa-acf9aa0e031e",
       "trimType": "auto",

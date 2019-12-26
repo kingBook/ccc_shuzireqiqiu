@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "6fdc29d7-abb4-4412-9b37-788f9e7100f8",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "企鹅出现5": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "745a56fd-35c1-474d-86a2-323c1fbd38b8",
       "rawTextureUuid": "6fdc29d7-abb4-4412-9b37-788f9e7100f8",
       "trimType": "custom",

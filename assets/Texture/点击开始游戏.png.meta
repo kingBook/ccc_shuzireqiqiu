@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "02d68273-851a-4097-b85c-118716881472",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "点击开始游戏": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "ae46257d-a104-46ab-8f31-7c95412cd06d",
       "rawTextureUuid": "02d68273-851a-4097-b85c-118716881472",
       "trimType": "custom",

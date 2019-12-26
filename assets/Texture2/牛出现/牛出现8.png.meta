@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "c5fed0bd-783c-42e8-8738-cc6a9bf28f6b",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "牛出现8": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "248510e8-3bb3-4aaf-a756-0e5fd92adb53",
       "rawTextureUuid": "c5fed0bd-783c-42e8-8738-cc6a9bf28f6b",
       "trimType": "custom",

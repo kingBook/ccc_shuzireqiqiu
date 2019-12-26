@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "0852a683-67e7-47dc-9df9-219057548457",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "猫出现4": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "5d0f2b4b-a968-476a-8398-ad3cd8caba89",
       "rawTextureUuid": "0852a683-67e7-47dc-9df9-219057548457",
       "trimType": "custom",

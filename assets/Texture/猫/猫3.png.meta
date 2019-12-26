@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "96a64c8d-7d98-419f-85d1-4ca6a5f78722",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "猫3": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "88dd0a97-518f-4934-9319-4d3020177692",
       "rawTextureUuid": "96a64c8d-7d98-419f-85d1-4ca6a5f78722",
       "trimType": "custom",

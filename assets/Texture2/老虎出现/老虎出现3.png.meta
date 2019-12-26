@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "707fb4d2-8207-43f5-92ce-10dbac6aa6d9",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "老虎出现3": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "30f7bd6e-d63d-4703-b1d1-d0c3c787dc22",
       "rawTextureUuid": "707fb4d2-8207-43f5-92ce-10dbac6aa6d9",
       "trimType": "custom",

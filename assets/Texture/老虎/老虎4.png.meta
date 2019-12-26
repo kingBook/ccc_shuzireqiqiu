@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "b08ac56c-9aa5-4dd6-b363-8a0a7fc33e71",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "老虎4": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "fc8bb1e6-753f-43d8-8335-d1aa9825d170",
       "rawTextureUuid": "b08ac56c-9aa5-4dd6-b363-8a0a7fc33e71",
       "trimType": "custom",

@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "7c99d422-28cf-4696-a3a2-71a506554ad1",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "热气球下面": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "cb8bdab2-6c6f-4279-a440-2df97f93c3d6",
       "rawTextureUuid": "7c99d422-28cf-4696-a3a2-71a506554ad1",
       "trimType": "auto",

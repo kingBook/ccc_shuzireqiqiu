@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "029c1ac2-4335-45c2-a0c6-04aeae88ff14",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "松鼠气球破35": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "087a09ef-cc77-47d9-806b-c09f40b12b13",
       "rawTextureUuid": "029c1ac2-4335-45c2-a0c6-04aeae88ff14",
       "trimType": "custom",

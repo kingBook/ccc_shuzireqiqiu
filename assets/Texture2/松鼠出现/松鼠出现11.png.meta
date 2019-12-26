@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "1431612f-3eac-4367-91ad-89e3599b6de1",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "松鼠出现11": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "dcf157d0-3aaa-4f0f-8f69-a143a3043eee",
       "rawTextureUuid": "1431612f-3eac-4367-91ad-89e3599b6de1",
       "trimType": "custom",

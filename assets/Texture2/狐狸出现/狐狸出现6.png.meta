@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "3189944b-9d5d-4ef5-9561-66e557b80ede",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "狐狸出现6": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "b573c18e-77ce-4086-b9a2-8d595c2f5d65",
       "rawTextureUuid": "3189944b-9d5d-4ef5-9561-66e557b80ede",
       "trimType": "custom",

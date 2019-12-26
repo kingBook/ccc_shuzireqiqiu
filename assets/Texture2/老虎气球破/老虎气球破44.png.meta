@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "69ee836f-9e4e-4d30-a567-e3d61c1ccba1",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "老虎气球破44": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "52fabd8e-e486-490e-a5a3-ee2208b721ae",
       "rawTextureUuid": "69ee836f-9e4e-4d30-a567-e3d61c1ccba1",
       "trimType": "custom",

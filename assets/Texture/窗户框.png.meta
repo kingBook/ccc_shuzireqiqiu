@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "f4f8cb9e-77fe-469f-87bb-551682ff7b3c",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "窗户框": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "38205eb9-4ba5-44fc-b58f-2139a56c4c15",
       "rawTextureUuid": "f4f8cb9e-77fe-469f-87bb-551682ff7b3c",
       "trimType": "auto",
